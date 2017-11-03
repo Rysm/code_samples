@@ -1,0 +1,92 @@
+<!--div class="resizable box box-solid meters-widget" id="history_widget_id" ng-controller="smc_history_widget_controller"-->
+<div class="box box-solid meters-widget" id="history_widget_id" ng-controller="smc_history_widget_controller">
+	<div class="box-header with-border dragula-handle">
+		<h4 class="w-fa box-title" id="title-header">
+			{{_("Profiling")}}
+		</h4>
+		<div class="box-tools pull-right">
+			<span class="label label-warning ng-hide" ng-show="has_error">
+				<i class="w-fa fa fa-exclamation-triangle"></i>
+				{{_("Error")}}
+			</span>
+			<button class="btn btn-box-tool dragula-handle" type="button">
+				<i class="w-fa fa fa-arrows dragula-handle"></i>
+			</button>
+			<button class="btn btn-box-tool remove-handle" ng-click="remove_widget()" type="button">
+				<i class="w-fa fa fa-times"></i>
+			</button>
+		</div>
+	</div>
+
+	<div datiphy-cards id="history_cards_id" data="card_data"></div>
+
+	<div class="box-body no-padding">
+
+		<div class="btn-group-underline">
+			<button type="button" class="btn btn-underline"
+				ng-click="switch_tab($index)"
+				ng-repeat="tab_name in tab_array"
+				ng-class="{'active': $index == active_tab}">
+
+				<span ng-bind="tab_name"></span>
+
+			</button>
+		</div>
+
+		<div class="btn-group-underline pull-right">
+			<button type="button" ng-click="switch_duration('hour')"
+				class="btn btn-underline" ng-class="{'active': active_duration == 'hour'}">Hour</button>
+			<button type="button" ng-click="switch_duration('day')"
+				class="btn btn-underline" ng-class="{'active': active_duration == 'day'}">Day</button>
+			<button type="button" ng-click="switch_duration('week')"
+				class="btn btn-underline" ng-class="{'active': active_duration == 'week'}">Week</button>
+			<button type="button" ng-click="switch_duration('month')"
+				class="btn btn-underline" ng-class="{'active': active_duration == 'month'}">Month</button>
+		</div>
+
+		<div id="chart1"></div>
+<!--	<div style="height:500px;width:100%;"> <svg id="chart2"></svg> </div> -->
+	</div>
+
+	<div class="box-footer">
+		<div class="btn-group pull-right dropup"><!-- style="width:50%"> -->
+			<!-- footer content goes here -->
+		</div>
+	</div>
+
+	<!-- ID CARD -->
+	<!-- div id="modal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog panel-wrapper modal-lg">
+		<h4>Event Card</h4>
+			<div class="card event-card card-highrisk">
+				<div class="card-header">
+					<div class="card-icon"> <i class="fa fa-exclamation-triangle"></i></div>
+					<h4 class="card-title">SQL Injection @ idaho:oracle</h4>
+				</div>
+				<div class="card-body">
+					<ul>
+						<li> <span class="card-list-content">2016-05-16</span>
+							<h5 class="card-list-title">Date</h5> </li>
+						<li> <span class="card-list-content">06:10:55</span>
+							<h5 class="card-list-title">Time</h5> </li>
+						<li> <span class="card-list-content">idaho:oracle</span>
+							<h5 class="card-list-title">Target</h5> </li>
+						<li> <span class="card-list-content">#5688</span>
+							<h5 class="card-list-title">Session</h5> </li>
+						<li> <span class="card-list-content">#5688-3</span>
+							<h5 class="card-list-title">Transaction</h5> </li>
+						<li> <span class="card-list-content">High</span>
+							<h5 class="card-list-title">Risk</h5> </li>
+					</ul>
+				</div>
+				<div class="card-footer">
+					<button type="button" class="btn btn-card">Similar</button>
+					<button type="button" class="btn btn-card pull-right">Close</button>
+				</div>
+			</div>
+		</div >
+	</div -->
+	<!-- TEST -->
+
+
+</div>
